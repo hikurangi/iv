@@ -1,0 +1,27 @@
+{
+  "name": "iv",
+  "version": "1.0.0",
+  "description": "gotta make those connections",
+  "main": "index.js",
+  "dependencies": {
+    "parcel": "^1.11.0",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
+    "react-hyperscript-helpers": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hikurangi/iv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hikurangi/iv/issues"
+  },
+  "homepage": "https://github.com/hikurangi/iv#readme"
+}
