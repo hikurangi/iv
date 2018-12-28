@@ -8,7 +8,35 @@ const Board = ({
   verticalCells = 6,
   horizontalCells = 7
 }) => {
-  // initialize board
+
+  const [board, setBoard] = useState(() => {
+    const initialState = getInitialState({ verticalCells, horizontalCells })
+    return initialState
+  })
+
+  return div({ style: containerStyle },[
+    div({ style: boardStyle({ verticalCells, horizontalCells }) }, renderCells(board))
+  ])
+}
+
+export default Board
+
+// helpers
+function renderCells (board) {
+  const row = []
+
+  for (let i = 0; i < board.length; i++) {
+    const thisRow = board[i]
+
+    for (let j = 0; j < thisRow.length; j++) {
+      row.push(h(Cell, { column: j, row: i }))
+    }
+  }
+
+  return row
+}
+
+function getInitialState ({ verticalCells, horizontalCells }) {
   const initialBoard = []
   for (let i = 0; i < verticalCells; i++) {
     const row = []
@@ -18,25 +46,5 @@ const Board = ({
     initialBoard.push(row)
   }
 
-  const [board, setBoard] = useState(initialBoard)
-
-  return div({ style: containerStyle },[
-    div({ style: boardStyle({ verticalCells, horizontalCells }) }, renderCells(board))
-  ])
-}
-
-export default Board
-
-function renderCells (board) {
-  const row = []
-
-  for (let i = 0; i < board.length; i++) {
-    const thisRow = board[i]
-
-    for (let j = 0; j < thisRow.length; j++) {
-      row.push(h(Cell, { id: `${i}-${j}` }))
-    }
-  }
-
-  return row
+  return initialBoard
 }

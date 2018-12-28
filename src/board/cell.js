@@ -1,6 +1,6 @@
 import { h, div } from 'react-hyperscript-helpers'
 
-const Cell = ({ player, id }) => {
+const Cell = ({ player, column, row, handleClick }) => {
   let cellColour = 'black'
 
   if (player === 1) {
@@ -12,7 +12,9 @@ const Cell = ({ player, id }) => {
   }
 
   return div({
-    id,
+    'data-column': column,
+    'data-row': row,
+    onClick: handleClick(column),
     style: {
       borderRadius: '100%',
       backgroundColor: cellColour || 'black'
