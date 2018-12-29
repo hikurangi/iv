@@ -13,6 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "deploy": "surge -d iv.surge.sh -p dist",
     "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
