@@ -9,7 +9,6 @@ export const boardStyle = ({ verticalCells, horizontalCells }) => {
   const gridTemplateColumns = getGridItemsCSS(cellSizePx, horizontalCells)
   const gridTemplateRows = getGridItemsCSS(cellSizePx, verticalCells)
 
-  console.log({gridTemplateColumns, gridTemplateRows})
   return {
     height: `${boardHeightPx}px`,
     width: `${boardWidthPx}px`,

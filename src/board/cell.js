@@ -1,19 +1,17 @@
 import { h, div } from 'react-hyperscript-helpers'
 
 const Cell = ({ player, column, row, handleClick }) => {
-  let cellColour = 'black'
-
+  let cellColour // danger zone
+  
   if (player === 1) {
     cellColour = 'red'
   }
-
+  
   if (player === 2) {
     cellColour = 'yellow'
   }
 
-  return div({
-    'data-column': column,
-    'data-row': row,
+  return div({ // TODO: add fela or similar CSS system to implement hover
     onClick: handleClick(column),
     style: {
       borderRadius: '100%',
