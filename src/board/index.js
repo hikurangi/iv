@@ -10,11 +10,12 @@ import { boardStyle, containerStyle }            from './style'
 
 // TODO:
 // 1. win conditions (dynamic, connect 10)
-// 2. dynamic player numbers w randomized colours
-// 3. dynamic board size
-// 4. make it look not horrible
-// 5. move history
-// 6. 3D
+// 2. animated counter drop
+// 3. dynamic player numbers w randomized colours
+// 4. dynamic board size
+// 5. make it look not horrible
+// 6. move history
+// 7. 3D
 
 const Board = ({
   verticalCells = 6,
