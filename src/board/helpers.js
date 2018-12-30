@@ -1,4 +1,9 @@
-export const getInitialBoard = ({ verticalCells, horizontalCells }) => {
+function getNextPlayer ({ currentPlayer }) {
+  return currentPlayer === 1 ? 2 : 1
+}
+
+// initial state
+function getInitialBoard ({ verticalCells, horizontalCells }) {
   const initialBoard = []
 
   for (let i = 0; i < verticalCells; i++) {
@@ -14,6 +19,12 @@ export const getInitialBoard = ({ verticalCells, horizontalCells }) => {
   return initialBoard
 }
 
-export const randomizeFirstPlayer = () => {
+function randomizeFirstPlayer () {
   return Math.floor(Math.random() * 2) + 1
 } 
+
+module.exports = {
+  getInitialBoard,
+  getNextPlayer,
+  randomizeFirstPlayer,
+}
