@@ -7,9 +7,9 @@ import {
   getInitialBoard,
   getNextPlayer,
   randomizeFirstPlayer,
-}                                     from './helpers'
+}                                     from '../helpers'
 import updateBoard                    from './update-board'
-import getWin                         from './get-win'
+import getWin                         from '../wins'
 
 import Cell                           from './cell'
 import { boardStyle, containerStyle } from './style'

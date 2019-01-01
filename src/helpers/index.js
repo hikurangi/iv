@@ -1,11 +1,11 @@
 import { all } from 'rambda'
 
-function getNextPlayer ({ currentPlayer }) {
+const getNextPlayer = ({ currentPlayer }) => {
   return currentPlayer === 1 ? 2 : 1
 }
 
 // initial state
-function getInitialBoard ({ verticalCells, horizontalCells }) {
+const getInitialBoard = ({ verticalCells, horizontalCells }) => {
   const initialBoard = []
 
   for (let i = 0; i < verticalCells; i++) {
@@ -21,11 +21,11 @@ function getInitialBoard ({ verticalCells, horizontalCells }) {
   return initialBoard
 }
 
-function randomizeFirstPlayer () {
+const randomizeFirstPlayer = () => {
   return Math.floor(Math.random() * 2) + 1
 } 
 
-function getIsConsecutive (...consecutives) {
+const getIsConsecutive = (...consecutives) => {
   return all((number, i) => {
     if (i === 0) {
       return true
@@ -35,9 +35,14 @@ function getIsConsecutive (...consecutives) {
   }, consecutives)
 }
 
+const getLengthMeetsWinCondition = ({ consecutives, winCondition }) => {
+  return consecutives.length === winCondition
+}
+
 module.exports = {
   getInitialBoard,
-  getNextPlayer,
   getIsConsecutive,
+  getLengthMeetsWinCondition,
+  getNextPlayer,
   randomizeFirstPlayer,
 }
