@@ -21,7 +21,7 @@
   "scripts": {
     "deploy": "surge -d iv.surge.sh -p dist",
     "start": "parcel src/index.html",
-    "test": "jest"
+    "test": "jest -c __test__/jest.config.js"
   },
   "repository": {
     "type": "git",
