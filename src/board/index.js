@@ -9,7 +9,7 @@ import {
   randomizeFirstPlayer,
 }                                     from './helpers'
 import updateBoard                    from './update-board'
-import getWin                         from './get-winner'
+import getWin                         from './get-win'
 
 import Cell                           from './cell'
 import { boardStyle, containerStyle } from './style'
@@ -23,6 +23,7 @@ import { boardStyle, containerStyle } from './style'
 // 6. move history
 // 7. 3D
 
+// gravity flip (rotate 90 degrees every n turns)
 // useEffect async hooks ?
 
 const Board = ({

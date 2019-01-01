@@ -1,3 +1,5 @@
+import { all } from 'rambda'
+
 function getNextPlayer ({ currentPlayer }) {
   return currentPlayer === 1 ? 2 : 1
 }
@@ -23,8 +25,19 @@ function randomizeFirstPlayer () {
   return Math.floor(Math.random() * 2) + 1
 } 
 
+function getIsConsecutive (...consecutives) {
+  return all((number, i) => {
+    if (i === 0) {
+      return true
+    }
+
+    return number === consecutives[i - 1] + 1
+  }, consecutives)
+}
+
 module.exports = {
   getInitialBoard,
   getNextPlayer,
+  getIsConsecutive,
   randomizeFirstPlayer,
 }
