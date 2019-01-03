@@ -10,6 +10,14 @@ test('Player 1 wins with horizontal connect', () => {
   expect(getWin({ board, currentPlayer, winCondition })).toEqual(true)
 })
 
+test('Player 1 does not win with non-contiguous horizontal \'connect\'', () => {
+  const board = fixtures.nonConsecutiveFalsePositiveHorizontal
+  const currentPlayer = 1
+  const winCondition = 4
+  
+  expect(getWin({ board, currentPlayer, winCondition })).toEqual(false)
+})
+
 test('Player 1 wins with vertical connect', () => {
   const board = fixtures.verticalWinBoard  
   const currentPlayer = 1
