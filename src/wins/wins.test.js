@@ -1,5 +1,4 @@
 import getWin               from '../wins'
-import { getIsConsecutive } from '../helpers'
 import fixtures             from '../../__test__/fixtures'
 
 test('Player 1 wins with horizontal connect', () => {
@@ -56,19 +55,4 @@ test('Player 1 does not win with descending non-contiguous left-right connect', 
   const winCondition = 4
 
   expect(getWin({ board, currentPlayer, winCondition })).toEqual(false)
-})
-
-test('Accurately get valid array of consecutive numbers', () => {
-  const consecutive = [1, 2, 3, 4]
-  expect(getIsConsecutive(...consecutive)).toEqual(true)
-})
-
-test('Accurately get valid array of non-consecutive numbers', () => {
-  const consecutive = [1, 2, 4, 5]
-  expect(getIsConsecutive(...consecutive)).toEqual(false)
-})
-
-test('Accurately get array with invalid contents', () => {
-  const consecutive = [undefined, 0]
-  expect(getIsConsecutive(...consecutive)).toEqual(false)
 })
