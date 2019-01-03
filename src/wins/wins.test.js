@@ -26,12 +26,28 @@ test('Player 1 wins with ascending left-right connect', () => {
   expect(getWin({ board, currentPlayer, winCondition })).toEqual(true)
 })
 
+test('Player 1 does not win with ascending non-contiguous left-to-right four', () => {
+  const board = fixtures.ascendingDiagonalIncompleteBoard 
+  const currentPlayer = 1
+  const winCondition = 4
+
+  expect(getWin({ board, currentPlayer, winCondition })).toEqual(false)
+})
+
 test('Player 1 wins with descending left-right connect', () => {
   const board = fixtures.descendingDiagonalWinBoard 
   const currentPlayer = 1
   const winCondition = 4
 
   expect(getWin({ board, currentPlayer, winCondition })).toEqual(true)
+})
+
+test('Player 1 does not win with descending non-contiguous left-right connect', () => {
+  const board = fixtures.descendingDiagonalIncompleteBoard 
+  const currentPlayer = 1
+  const winCondition = 4
+
+  expect(getWin({ board, currentPlayer, winCondition })).toEqual(false)
 })
 
 test('Accurately get valid array of consecutive numbers', () => {
