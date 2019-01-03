@@ -32,7 +32,7 @@ const getWin = ({
   // 1. horizontally
   const isWinner = hasWinningRow({ currentPlayerCells, winCondition })
     || hasWinningColumn({ currentPlayerCells, winCondition })
-    || hasWinningDiagonal({ currentPlayerCells, winCondition })
+    || hasWinningDiagonal({ board, currentPlayer, winCondition })
   
   return isWinner  
 }

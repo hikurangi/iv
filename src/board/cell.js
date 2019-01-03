@@ -3,7 +3,7 @@ import { h, div } from 'react-hyperscript-helpers'
 const Cell = ({ player, column, row, handleClick }) => {
   let cellColour // danger zone
   
-  if (player === 1) {
+  if (player === 1) { // todo player.colour
     cellColour = 'red'
   }
   
