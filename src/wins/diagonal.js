@@ -1,33 +1,32 @@
-import { any, filter, groupBy, values }                 from 'rambda'
-import { getIsConsecutive, getLengthMeetsWinCondition } from '../helpers'
+import { any, filter, groupBy, max, values } from 'rambda'
+import arrayHasWins from './row'
 
 const hasWinningDiagonal = ({ board, currentPlayer, winCondition }) => {
-    // filter for diagonals longer than winCondition
+  // filter for diagonals longer than winCondition
 
   const allDiagonals = getAllDiagonals({ board })
+  const allWinCandidateDiagonals = filter(diag => diag.length >= winCondition, allDiagonals)
   
-  const diagsWithCurrentPlayer = filter(diagonal => {
-    const cellsWithPlayer = filter(cell => cell.player === currentPlayer, diagonal)
-    return cellsWithPlayer.length >= winCondition
-  }, allDiagonals)
-
-  // sort by column
-  // either 
-  // 1. ascending: columns increment by one and rows increment by one
-  // 2. descending: columns increment by one and rows decrement by one
-
-  console.log({ allDiagonals, diagsWithCurrentPlayer })
+  return arrayHasWins({
+    board: allWinCandidateDiagonals,
+    currentPlayer,
+    winCondition
+  })
 }
 
 function getAllDiagonals ({ board }) {
 
   const boardHeight = board.length
   const boardWidth = board[0].length
-  const maxLength = Math.max(boardWidth, boardHeight)
 
-  const allDiagonals = []
+  // the maximum length of a diagonal for a given rectangle
+  // is the same as the longest side of that rectangle
+  const maxLength = max(boardWidth, boardHeight)
 
+  
   const getDiagonalsInOneDirection = ({ ascending }) => {
+    const diagonals = []
+
     for (let i = 0; i <= 2 * (maxLength - 1); ++i) {
       const diagonal = []
   
@@ -40,15 +39,17 @@ function getAllDiagonals ({ board }) {
       }
   
       if(diagonal.length > 0) {
-        allDiagonals.push(diagonal)
+        diagonals.push(diagonal)
       }
     }
+
+    return diagonals
   }
 
-  getDiagonalsInOneDirection({ ascending: true })
-  getDiagonalsInOneDirection({ ascending: false })
+  const ascending = getDiagonalsInOneDirection({ ascending: true })
+  const descending = getDiagonalsInOneDirection({ ascending: false })
 
-  return allDiagonals
+  return [...ascending, ...descending]
 
 }
 

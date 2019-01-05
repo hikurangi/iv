@@ -10,6 +10,7 @@ const hasWinningColumn = ({ board, currentPlayer, winCondition }) => {
   
   const boardByColumns = getColumns(board)
   
+  // this code is a candidate for abstraction
   return any(column => {
     let consecutives = 0
     
