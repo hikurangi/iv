@@ -1,21 +1,22 @@
-import react, { useState }            from 'react'
-import { h, div }                     from 'react-hyperscript-helpers'
-import { toast }                      from 'react-toastify'
-import { path }                       from 'rambda'
-
+import react, { useState }                        from 'react'
+import { h, div }                                 from 'react-hyperscript-helpers'
+import { toast }                                  from 'react-toastify'
+import { path }                                   from 'rambda'
 import {
   getInitialBoard,
   getNextPlayer,
   randomizeFirstPlayer,
-}                                     from '../helpers'
-import updateBoard                    from './update-board'
-import getWin                         from '../wins'
+}                                                 from '../helpers'
+import updateBoard                                from './update-board'
+import getWin                                     from '../wins'
 
-import Cell                           from './cell'
-import { boardStyle, containerStyle } from './style'
+import Cell                                       from './cell'
+import { boardStyle, containerStyle, hideCursor } from './style'
 
 // TODO:
-// 1. win conditions (stretch = dynamic, connect 10)
+
+// 1. board as 1d array
+// 2. Mouse cursor = counter
 // 2. animated counter drop
 // 3. dynamic player numbers w randomized colours
 // 4. dynamic board size
@@ -38,6 +39,8 @@ const Board = ({
     toast.info(`The game has begun. It's player ${currentPlayer}'s turn!`) // TODO: give toast player colour
     return initialState
   })
+
+  // hideCursor(true)
 
   const handleClick = column => e => {
     const nextPlayer = getNextPlayer({ currentPlayer })

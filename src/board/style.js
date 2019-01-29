@@ -1,3 +1,5 @@
+import { filter, findIndex } from 'rambda'
+
 // CSS
 export const boardStyle = ({ verticalCells, horizontalCells }) => {
   const cellSizePx = 50
@@ -48,3 +50,20 @@ function getGridItemsCSS (size, cellNumber) {
 
   return gridItemsCSS
 }
+
+// cursor
+export const hideCursor = (shouldHide) => {
+  const hideRule = '* { cursor: none; }'
+  const globalStyles = filter(sheet => sheet.title === 'Global Styles', document.styleSheets)[0]
+
+  if (shouldHide === true) { // so explicit
+    return globalStyles.insertRule(hideRule)
+  }
+  
+  if (shouldHide === false) {
+    const hideRuleIndex = findIndex(rule => rule === hideRule, globalStyles) // almost always '0'
+    return globalStyles.deleteRule(hideRuleIndex)
+  }
+
+  return
+}  
