@@ -1,4 +1,4 @@
-import { any, flatten, groupBy, pipe, values } from 'rambda'
+import { any, flatten, forEach, groupBy, pipe, values } from 'rambda'
 
 const hasWinningColumn = ({ board, currentPlayer, winCondition }) => {
   

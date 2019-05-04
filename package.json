@@ -4,11 +4,15 @@
   "description": "gotta make those connections",
   "main": "index.js",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "i18next": "^15.0.5",
     "parcel": "^1.11.0",
     "rambda": "^2.2.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-hyperscript-helpers": "^2.0.0",
+    "react-i18next": "^10.2.0",
+    "react-reformed": "^2.0.0",
     "react-toastify": "^4.5.1"
   },
   "devDependencies": {
@@ -20,7 +24,7 @@
   },
   "scripts": {
     "deploy": "surge -d iv.surge.sh -p dist",
-    "start": "parcel src/index.html",
+    "start": "parcel static/index.html",
     "test": "jest"
   },
   "repository": {

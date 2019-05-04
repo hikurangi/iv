@@ -15,13 +15,14 @@ import { boardStyle, containerStyle, hideCursor } from './style'
 
 // TODO:
 
+// 0. add custom settings / default
 // 1. board as 1d array
 // 2. Mouse cursor = counter
 // 2. animated counter drop
 // 3. dynamic player numbers w randomized colours
 // 4. dynamic board size
 // 5. make it look not horrible
-// 6. move history
+// 6. move history / level fact base
 // 7. 3D
 
 // gravity flip (rotate 90 degrees every n turns)
